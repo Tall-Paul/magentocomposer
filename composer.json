@@ -1,0 +1,46 @@
+{
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=7.0.0",
+    "aydin-hassan/magento-core-composer-installer": "^1.0",
+    "magento-hackathon/magento-composer-installer": "3.1.0",
+    "Tall-Paul/magento-community": "1.9.3.3",
+    "n98/magerun": "*",
+    "jamescowie/composer-patcher": "dev-master",
+    "inchoo/php7": "1.0.6"
+  },
+  "repositories": [
+     {
+        "type":"composer",
+        "url":"http://packages.firegento.com"
+    },
+    {"type": "vcs", "url": "git@github.com:Inchoo/Inchoo_PHP7.git"},
+    {"type": "vcs", "url": "git@github.com:tall-paul/magento-community.git"},
+    {"type": "vcs", "url": "git@github.com:jamescowie/composer-patcher.git"}
+  ],
+  "extra": {
+    "magento-root-dir": "http/",
+    "auto-append-gitignore": true,
+    "magento-deploystrategy": "copy",
+    "magento-force": true
+  },
+  "config": {
+    "bin-dir": "bin",
+    "discard-changes": true,
+    "vendor-dir": "vendor/composer"
+  },
+  "scripts" : {
+    "pre-install-cmd": [
+      "tools/composer/create-directory.sh"
+    ],
+    "post-install-cmd": [
+      "tools/composer/link-local-files.sh",
+      "Inviqa\\Command::patch"
+    ],
+    "post-update-cmd": [
+      "tools/composer/link-local-files.sh",
+      "Inviqa\\Command::patch"
+    ]
+  }
+}
