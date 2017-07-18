@@ -1,0 +1,2 @@
+# magentocomposer
+Magento Composer Setup
