@@ -5,7 +5,7 @@
 # CODEBASE_DIRECTORY="/path/to/installation/" php composer.phar install
 #
 if [ -z "$CODEBASE_DIRECTORY" ]; then
-    CODEBASE_DIRECTORY='../'
+    CODEBASE_DIRECTORY='./'
 fi
 if [ -z "$INSTALLATION_STRATEGY" ]; then
     INSTALLATION_STRATEGY='symlink'
