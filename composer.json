@@ -2,6 +2,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
+    "wikimedia/composer-merge-plugin": "dev-master",
+    "colinmollenhour/modman": "*",
+    "theseer/autoload" : "~1.14",
     "php": ">=7.0.0",
     "aydin-hassan/magento-core-composer-installer": "^1.0",
     "magento-hackathon/magento-composer-installer": "3.1.0",
@@ -20,7 +23,19 @@
     {"type": "vcs", "url": "git@github.com:jamescowie/composer-patcher.git"}
   ],
   "extra": {
-    "magento-root-dir": "./http/",
+      "merge-plugin": {
+          "include": [
+              "../composer.json"
+          ],
+          "recurse": true,
+          "replace": false,
+          "ignore-duplicates": false,
+          "merge-dev": true,
+          "merge-extra": true,
+          "merge-extra-deep": false,
+          "merge-scripts": true
+      },
+      "magento-root-dir": "../http",
     "auto-append-gitignore": true,
     "magento-deploystrategy": "copy",
     "magento-force": true
@@ -31,15 +46,15 @@
     "vendor-dir": "vendor/composer"
   },
   "scripts" : {
-    "pre-install-cmd": [
-      "magentocomposer/tools/composer/create-directory.sh"
+    "command": [
+      "./tools/composer/create-directory.sh"
     ],
     "post-install-cmd": [
-      "magentocomposer/tools/composer/link-local-files.sh",
+      "./tools/composer/link-local-files.sh",
       "Inviqa\\Command::patch"
     ],
     "post-update-cmd": [
-      "magentocomposer/tools/composer/link-local-files.sh",
+      "./tools/composer/link-local-files.sh",
       "Inviqa\\Command::patch"
     ]
   }

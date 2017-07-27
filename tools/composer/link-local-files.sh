@@ -5,7 +5,7 @@
 # CODEBASE_DIRECTORY="/path/to/installation/" php composer.phar install
 #
 if [ -z "$CODEBASE_DIRECTORY" ]; then
-    CODEBASE_DIRECTORY='./'
+    CODEBASE_DIRECTORY='../'
 fi
 if [ -z "$INSTALLATION_STRATEGY" ]; then
     INSTALLATION_STRATEGY='symlink'
@@ -17,7 +17,7 @@ else
     echo "Using installation strategy 'symlink'"
 fi
 
-TARGET_INSTALLATION_DIRECTORY="$(pwd)/http"
+TARGET_INSTALLATION_DIRECTORY="$(pwd)/../http"
 
 symlink() {
     parent_directory=${1%/*}
