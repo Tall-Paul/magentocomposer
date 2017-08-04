@@ -16,19 +16,20 @@
   "repositories": [
      {
         "type":"composer",
-        "url":"http://packages.firegento.com"
+        "url":"https://packages.firegento.com"
     },
     {"type": "vcs", "url": "git@github.com:Inchoo/Inchoo_PHP7.git"},
     {"type": "vcs", "url": "git@github.com:tall-paul/magento-community.git"},
-    {"type": "vcs", "url": "git@github.com:jamescowie/composer-patcher.git"}
+    {"type": "vcs", "url": "git@github.com:jamescowie/composer-patcher.git"},
+    {"type": "vcs", "url": "git@github.com:colinmollenhour/php-redis-session-abstract"}
   ],
   "extra": {
       "merge-plugin": {
           "include": [
               "../composer.json"
           ],
-          "recurse": true,
-          "replace": false,
+          "recurse": false,
+          "replace": true,
           "ignore-duplicates": false,
           "merge-dev": true,
           "merge-extra": true,
@@ -43,7 +44,8 @@
   "config": {
     "bin-dir": "bin",
     "discard-changes": true,
-    "vendor-dir": "vendor/composer"
+    "vendor-dir": "vendor/composer",
+    "secure-http":false
   },
   "scripts" : {
     "command": [
