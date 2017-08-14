@@ -91,8 +91,18 @@ find "skin" -mindepth 2 -maxdepth 2 -type d -print0 | while read -d '' -r file; 
     install_file "$file" "../../.."
 done
 
+#link skin files
+find "skin" -mindepth 3 -maxdepth 3 -type d -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../.."
+done
+
 #link js files
 find "js" -mindepth 1 -maxdepth 1 -print0 | while read -d '' -r file; do
+    install_file "$file" "../.."
+done
+
+#link js files
+find "lib" -mindepth 1 -maxdepth 1 -print0 | while read -d '' -r file; do
     install_file "$file" "../.."
 done
 
