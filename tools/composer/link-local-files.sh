@@ -86,6 +86,42 @@ find "app/design" -mindepth 3 -maxdepth 3 -type d -print0 | while read -d '' -r 
     install_file "$file" "../../../../.."
 done
 
+#link adminhtml design files
+find "app/design/adminhtml/default/default" -mindepth 2 -maxdepth 2  -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../../../../../"
+done
+
+#link adminhtml design files
+find "app/design/adminhtml/default/default" -mindepth 3 -maxdepth 3  -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../../../../../../"
+done
+
+#link adminhtml design files
+find "app/design/adminhtml/default/default" -mindepth 2 -maxdepth 2  -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../../../../../"
+done
+
+#link adminhtml design files
+find "app/design/frontend/default/default" -mindepth 2 -maxdepth 2  -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../../../../../"
+done
+
+#link adminhtml design files
+find "app/design/frontend/default/default" -mindepth 3 -maxdepth 3  -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../../../../../.."
+done
+
+#link adminhtml design files
+find "app/design/frontend/base/default" -mindepth 1 -maxdepth 1  -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../../../../"
+done
+
+#link adminhtml design files
+find "app/design/frontend/base/default" -mindepth 2 -maxdepth 2  -print0 | while read -d '' -r file; do
+    install_file "$file" "../../../../../../.."
+done
+
+
 #link skin files
 find "skin" -mindepth 2 -maxdepth 2 -type d -print0 | while read -d '' -r file; do
     install_file "$file" "../../.."
@@ -114,6 +150,11 @@ done
 #link errors files
 find "errors" -mindepth 1 -maxdepth 1 -print0 | while read -d '' -r file; do
     install_file "$file" "../.."
+done
+
+#trying to link email template files
+find "app/locale" -mindepth 2 -maxdepth 2 -print0 | while read -d '' -r file; do
+        install_file "$file" "../../../.."
 done
 
 #trying to link email template files
