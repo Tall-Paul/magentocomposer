@@ -8,7 +8,7 @@
     "php": ">=7.0.0",
     "aydin-hassan/magento-core-composer-installer": "^1.0",
     "magento-hackathon/magento-composer-installer": "3.1.0",
-    "Tall-Paul/magento-community": "1.9.3.4",
+    "Tall-Paul/magento-community": "1.9.3.6",
     "n98/magerun": "*",
     "jamescowie/composer-patcher": "dev-master",
     "inchoo/php7": "1.0.6"
