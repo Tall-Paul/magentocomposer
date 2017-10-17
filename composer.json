@@ -52,11 +52,11 @@
       "./tools/composer/create-directory.sh"
     ],
     "post-install-cmd": [
-      "./tools/composer/link-local-files.sh",
+      "./tools/composer/install-files.sh",
       "Inviqa\\Command::patch"
     ],
     "post-update-cmd": [
-      "./tools/composer/link-local-files.sh",
+      "./tools/composer/install-files.sh",
       "Inviqa\\Command::patch"
     ]
   }
