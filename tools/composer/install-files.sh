@@ -3,6 +3,7 @@
 SRCROOT="$(pwd)/../src"
 TARGETROOT="$(pwd)/../http"
 
+
 find $SRCROOT -type f -print0 | while read -d '' -r file; do
     #remove src from filepath
     file=${file/$SRCROOT/}
@@ -10,14 +11,15 @@ find $SRCROOT -type f -print0 | while read -d '' -r file; do
     #split remaining file path into array
     IFS='/' read -r -a array <<< "$file"
     FILEPATH=''
+    DEPTH="../src/"
     unset array[0] #removes rogue directory seperator
     #loop through file path
     for element in "${array[@]}"
     do
         FILEPATH=$FILEPATH/$element
         TARGET=$TARGETROOT$FILEPATH
-        SRC=$SRCROOT$FILEPATH
-
+        SRC=$DEPTH$FILEPATH
+        DEPTH=../$DEPTH
         if [ -L "${TARGET}" ]; then
           break
         fi
