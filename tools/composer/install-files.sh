@@ -34,7 +34,8 @@ find $SRCROOT -type f -print0 | while read -d '' -r file; do
               break
             fi
             #it's actually a file, remove it and symlinkg
-            echo "removing and symlinking $FILEPATH"
+            printf "|"
+            #echo "removing and symlinking $FILEPATH"
             rm -f "${TARGET}"
             ln -s "${SRC}" "${TARGET}"
             break
@@ -42,7 +43,8 @@ find $SRCROOT -type f -print0 | while read -d '' -r file; do
         #echo $FILEPATH
         #if target doesn't exist, create symlink
         if [ ! -e "${TARGET}" ]; then
-            echo "symlinking $FILEPATH"
+            printf "-"
+            #echo "symlinking $FILEPATH"
             ln -s "${SRC}" "${TARGET}"
             break
         fi
@@ -50,3 +52,5 @@ find $SRCROOT -type f -print0 | while read -d '' -r file; do
 
     done
 done
+
+echo "done"
