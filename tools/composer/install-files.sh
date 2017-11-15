@@ -85,10 +85,17 @@ function install_files {
   done
 }
 
-find "../extensions" -mindepth 1 -maxdepth 1 -type d -print0 | while read -d '' -r file; do
+#check if installed
+if [ -e "${TARGETROOT}/installed" ]; then
+  exit
+fi
+
+find "../extensions" -mindepth 2 -maxdepth 2 -type d -print0 | while read -d '' -r file; do
     install_files $(pwd)/$file
 done
 
 install_files $SRCROOT
+
+touch "${TARGETROOT}/installed"
 
 echo "done"
