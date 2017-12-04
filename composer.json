@@ -2,7 +2,6 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
-    "wikimedia/composer-merge-plugin": "dev-master",
     "colinmollenhour/modman": "*",
     "theseer/autoload" : "~1.14",
     "php": ">=7.0.0",
@@ -24,18 +23,6 @@
     {"type": "vcs", "url": "git@github.com:colinmollenhour/php-redis-session-abstract"}
   ],
   "extra": {
-      "merge-plugin": {
-          "include": [
-              "../composer.json"
-          ],
-          "recurse": false,
-          "replace": true,
-          "ignore-duplicates": false,
-          "merge-dev": true,
-          "merge-extra": true,
-          "merge-extra-deep": false,
-          "merge-scripts": true
-      },
       "magento-root-dir": "../http",
     "auto-append-gitignore": true,
     "magento-deploystrategy": "copy",
