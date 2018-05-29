@@ -7,10 +7,11 @@
     "php": ">=7.0.0",
     "aydin-hassan/magento-core-composer-installer": "^1.0",
     "magento-hackathon/magento-composer-installer": "3.1.0",
-    "Tall-Paul/magento-community": "1.9.3.7",
+    "openmage/magento-lts": "1.9.3.x-dev",
     "n98/magerun": "*",
     "jamescowie/composer-patcher": "dev-master",
-    "inchoo/php7": "1.0.6"
+    "inchoo/php7": "1.0.6",
+    "tallpaul/magesrc": "*"
   },
   "repositories": [
      {
@@ -18,9 +19,12 @@
         "url":"https://packages.firegento.com"
     },
     {"type": "vcs", "url": "git@github.com:Inchoo/Inchoo_PHP7.git"},
-    {"type": "vcs", "url": "git@github.com:tall-paul/magento-community.git"},
     {"type": "vcs", "url": "git@github.com:jamescowie/composer-patcher.git"},
-    {"type": "vcs", "url": "git@github.com:colinmollenhour/php-redis-session-abstract"}
+    {"type": "vcs", "url": "git@github.com:colinmollenhour/php-redis-session-abstract"},
+    {
+      "type": "vcs",
+      "url": "git@github.com:OpenMage/magento-lts.git"
+    },
   ],
   "extra": {
       "magento-root-dir": "../http",
@@ -37,14 +41,6 @@
   "scripts" : {
     "command": [
       "./tools/composer/create-directory.sh"
-    ],
-    "post-install-cmd": [
-      "./tools/composer/install-files.sh",
-      "Inviqa\\Command::patch"
-    ],
-    "post-update-cmd": [
-      "./tools/composer/install-files.sh",
-      "Inviqa\\Command::patch"
     ]
   }
 }
